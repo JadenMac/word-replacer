@@ -77,7 +77,7 @@ function displayOpt(items) {
 
     //creating and setting up the rest of the divs
     for (let i = 1; i < items.length; i++) {
-        let phraseDiv = addNewPhraseItem();
+        let newDiv = addNewPhraseItem();
         item = items[i];
         newDiv.setAttribute('id', item.phraseDivId)
         newDiv.querySelector('.target-phrase').value = item.targetPhrase;
