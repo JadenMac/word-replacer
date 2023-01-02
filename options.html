@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Replacer Options</title>
+</head>
+<body>
+
+<div id="phrases-container">
+    <div class="phrase-item">
+    Target Phrase:
+    <input type="text" name="targetPhrase" class="target-phrase" value="">
+<select class="actions">
+ <option value="blur">blur</option>
+ <option value="replace">replace</option>
+ <option value="remove">remove from options</option>
+</select>
+Replace With:
+<input type="text" name="replaceWith" class="replace-with">
+<label>
+  <input type="checkbox" class="entire-paragraph">
+  Apply to entire paragraph containing the phrase.
+</label>
+</div>
+
+</div>
+<div id="status"></div>
+<button id="add-phrase">Add New Word or Phrase</button>
+<button id="save">Save</button>
+
+<script src="options.js"></script>
+
+</body>
+</html>
