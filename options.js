@@ -12,9 +12,11 @@ function save_options() {
 
     //sets ids for each phrase div
     for (let i=0; i<phraseDivs.length; i++) {
+      if (phraseDivs[i].querySelector('.actions').value !== 'remove') {
         let id = Date.now() + i;
         phraseDivs[i].setAttribute('id', id);
         phraseDivsIds.push(id);
+      }
     }
     
     for (let i=0; i<phraseDivsIds.length; i++) {
