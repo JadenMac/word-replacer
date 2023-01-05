@@ -11,21 +11,20 @@ chrome.storage.sync.get({
   }
 
   function replacePhrase(phraseObj) {
-    console.log('replacePhrase');
-    let possibleElements = document.querySelectorAll('h1, h2, h3, h4, h5, p, article, a, div, span, title, blockquote');
+    let possibleElements = document.querySelectorAll('h1, h2, h3, h4, h5, p, a, span, title, blockquote');
     for (let i = 0; i < possibleElements.length; i++) {
-        if (possibleElements[i].innerText.toLowerCase().includes(phraseObj.targetPhrase.toLowerCase())) {
-            console.log('includes target phrase');
+        if (possibleElements[i].innerText && (possibleElements[i].innerText.toLowerCase().includes(phraseObj.targetPhrase.toLowerCase()))) {
             if (phraseObj.actionToTake === 'blur') {
-                console.log('blur');
-                let regExpression = new RegExp('(?![^<]+>)' + phraseObj.targetPhrase, 'gi');
                 if (phraseObj.entirePara) {
-                regExpression = new RegExp(possibleElements[i].innerHTML);
+                    possibleElements[i].style.color = 'transparent';
+                    possibleElements[i].style.textShadow = '0 0 8px #000';
                 }
-                possibleElements[i].innerHTML = possibleElements[i].innerHTML.replace(regExpression, ' <span class="blur-span">' + phraseObj.targetPhrase + '</span> ');
+                else {
+                let regExpression = new RegExp('(?![^<]+>)' + phraseObj.targetPhrase, 'gi');
+                possibleElements[i].innerHTML = possibleElements[i].innerHTML.replace(regExpression, ' <span class="blur-text">' + phraseObj.targetPhrase + '</span> ');
+                }
             }
             else if (phraseObj.actionToTake === 'replace') {
-                console.log('replace');
                 let regExpression = new RegExp('(?![^<]+>)' + phraseObj.targetPhrase, 'gi');
                 if (phraseObj.entirePara) {
                 regExpression = new RegExp(possibleElements[i].innerHTML);
