@@ -1,7 +1,7 @@
 {
     "name": "Word Replacer",
-    "version": "0.0.1",
-    "description": "replace or blur any word or phrase",
+    "version": "1.0.0",
+    "description": "Replace or blur any word or phrase across the web!",
     "manifest_version": 3,
     "permissions": ["scripting", "storage"],
     "options_ui": {
