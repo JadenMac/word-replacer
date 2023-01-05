@@ -25,7 +25,7 @@ chrome.storage.sync.get({
                 }
             }
             else if (phraseObj.actionToTake === 'replace') {
-                let regExpression = new RegExp('(?![^<]+>)' + phraseObj.targetPhrase, 'gi');
+                let regExpression = new RegExp('(?![^<]+>)' + \b + phraseObj.targetPhrase + \b, 'gi');
                 if (phraseObj.entirePara) {
                 regExpression = new RegExp(possibleElements[i].innerHTML);
                 }
