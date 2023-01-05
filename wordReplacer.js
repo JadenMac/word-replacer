@@ -20,12 +20,14 @@ chrome.storage.sync.get({
                     possibleElements[i].style.textShadow = '0 0 8px #000';
                 }
                 else {
-                let regExpression = new RegExp('(?![^<]+>)' + phraseObj.targetPhrase, 'gi');
+                let regExpression = new RegExp('(?![^<]+>)' + '\\b' + phraseObj.targetPhrase + '\\b' , 'gi');
+                console.log(regExpression);
                 possibleElements[i].innerHTML = possibleElements[i].innerHTML.replace(regExpression, ' <span class="blur-text">' + phraseObj.targetPhrase + '</span> ');
                 }
             }
             else if (phraseObj.actionToTake === 'replace') {
-                let regExpression = new RegExp('(?![^<]+>)' + \b + phraseObj.targetPhrase + \b, 'gi');
+                let regExpression = new RegExp('(?![^<]+>)' + '\\b' + phraseObj.targetPhrase + '\\b', 'gi');
+                console.log(regExpression);
                 if (phraseObj.entirePara) {
                 regExpression = new RegExp(possibleElements[i].innerHTML);
                 }
